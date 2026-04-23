@@ -29,19 +29,18 @@ class DisplayArea extends StatelessWidget {
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.end,
+        mainAxisSize: MainAxisSize.min,
         children: [
-          Expanded(
-            child: SingleChildScrollView(
-              reverse: true,
-              child: Text(
-                expression,
-                style: TextStyle(
-                  fontFamily: 'Roboto',
-                  fontSize: 18,
-                  color: Colors.grey,
-                ),
-                textAlign: TextAlign.right,
+          SingleChildScrollView(
+            reverse: true,
+            child: Text(
+              expression,
+              style: TextStyle(
+                fontFamily: 'Roboto',
+                fontSize: 18,
+                color: Colors.grey,
               ),
+              textAlign: TextAlign.right,
             ),
           ),
           SizedBox(height: 8),

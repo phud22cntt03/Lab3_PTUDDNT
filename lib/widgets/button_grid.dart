@@ -49,25 +49,25 @@ class ButtonGrid extends StatelessWidget {
         break;
     }
 
-    return Expanded(
-      child: GridView.builder(
-        padding: EdgeInsets.all(24),
-        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: buttons[0].length,
-          crossAxisSpacing: 12,
-          mainAxisSpacing: 12,
-        ),
-        itemCount: buttons.expand((row) => row).length,
-        itemBuilder: (context, index) {
-          int row = index ~/ buttons[0].length;
-          int col = index % buttons[0].length;
-          String buttonText = buttons[row][col];
-          return CalculatorButton(
-            text: buttonText,
-            onPressed: () => onButtonPressed(buttonText),
-          );
-        },
+    return GridView.builder(
+      padding: EdgeInsets.all(24),
+      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+        crossAxisCount: buttons[0].length,
+        crossAxisSpacing: 12,
+        mainAxisSpacing: 12,
       ),
+      itemCount: buttons.expand((row) => row).length,
+      shrinkWrap: true,
+      physics: NeverScrollableScrollPhysics(),
+      itemBuilder: (context, index) {
+        int row = index ~/ buttons[0].length;
+        int col = index % buttons[0].length;
+        String buttonText = buttons[row][col];
+        return CalculatorButton(
+          text: buttonText,
+          onPressed: () => onButtonPressed(buttonText),
+        );
+      },
     );
   }
 }

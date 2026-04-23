@@ -71,19 +71,18 @@ class CalculatorScreen extends StatelessWidget {
           ),
         ],
       ),
-      body: Column(
-        children: [
-          Consumer<CalculatorProvider>(
-            builder: (context, provider, child) {
-              return ModeSelector(
-                currentMode: provider.mode,
-                onModeChanged: (mode) => provider.setMode(mode),
-              );
-            },
-          ),
-          Expanded(
-            flex: 1,
-            child: Consumer<CalculatorProvider>(
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            Consumer<CalculatorProvider>(
+              builder: (context, provider, child) {
+                return ModeSelector(
+                  currentMode: provider.mode,
+                  onModeChanged: (mode) => provider.setMode(mode),
+                );
+              },
+            ),
+            Consumer<CalculatorProvider>(
               builder: (context, provider, child) {
                 return DisplayArea(
                   expression: provider.expression,
@@ -91,16 +90,16 @@ class CalculatorScreen extends StatelessWidget {
                 );
               },
             ),
-          ),
-          Consumer<CalculatorProvider>(
-            builder: (context, provider, child) {
-              return ButtonGrid(
-                mode: provider.mode,
-                onButtonPressed: (button) => _onButtonPressed(context, button),
-              );
-            },
-          ),
-        ],
+            Consumer<CalculatorProvider>(
+              builder: (context, provider, child) {
+                return ButtonGrid(
+                  mode: provider.mode,
+                  onButtonPressed: (button) => _onButtonPressed(context, button),
+                );
+              },
+            ),
+          ],
+        ),
       ),
     );
   }
