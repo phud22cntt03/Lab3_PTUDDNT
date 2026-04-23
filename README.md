@@ -69,5 +69,5 @@ This project is submitted as part of the Advanced Mobile Calculator assignment.
 ## Interfaces
 
 ![alt text](image.png)
-![alt text](image-1.png)
+![alt text](image-3.png)
 ![alt text](image-2.png)
